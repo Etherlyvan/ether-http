@@ -6,7 +6,7 @@ export interface Response {
 
 const reasons: Record<number, string> = {
   200: 'OK', 400: 'Bad Request', 404: 'Not Found', 405: 'Method Not Allowed',
-  408: 'Request Timeout', 413: 'Content Too Large', 417: 'Expectation Failed',
+  408: 'Request Timeout', 413: 'Content Too Large', 415: 'Unsupported Media Type', 417: 'Expectation Failed',
   431: 'Request Header Fields Too Large', 500: 'Internal Server Error', 501: 'Not Implemented',
 };
 

@@ -70,3 +70,9 @@ Header dibatasi 16 KiB, body 1 MiB, dan socket memiliki idle timeout 10 detik. R
 Ini proyek belajar, belum server untuk produksi. Hanya HTTP/1.1 dengan target berbentuk `/path` yang didukung. Setiap koneksi menangani satu request dan mengirim `Connection: close`; byte request tambahan tidak diproses. Tidak ada keep-alive, pipelining, TLS, streaming, chunked encoding, kompresi, atau route parameter. Transfer-Encoding ditolak dengan 501 dan Expect dengan 417. Semua nama header ganda ditolak untuk menyederhanakan framing, termasuk header yang sebenarnya boleh berulang dalam HTTP. Host wajib ada, tetapi validasi lengkap sintaks authority belum diterapkan. Timeout adalah batas idle, bukan batas total durasi request.
 
 Pengujian mencakup parsing parsial, UTF-8, framing ambigu, batas ukuran, header injection, serta integrasi socket TCP untuk routing, HEAD, request terpotong, dan kegagalan handler.
+
+## Dipakai oleh ether-db
+
+Package ini mengekspor `createServer`, `Router`, dan `json` melalui entry point `ether-http`, tanpa menjalankan server contoh saat diimpor. Jalankan `npm run build` untuk menghasilkan JavaScript dan deklarasi tipe di `dist/`.
+
+Contoh penggunaan ada di [ether-db](https://github.com/Etherlyvan/ether-db): API key-value persisten pada port 3001. Simpan kedua repository berdampingan agar dependency lokal `file:../ether-http` dapat ditemukan. Instruksi lengkap ada di README ether-db.

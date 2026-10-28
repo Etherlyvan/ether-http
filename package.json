@@ -4,6 +4,8 @@
   "private": true,
   "description": "An educational HTTP/1.1 server built on TCP",
   "type": "module",
+  "exports": { ".": { "types": "./dist/lib.d.ts", "import": "./dist/lib.js" } },
+  "files": ["dist"],
   "scripts": {
     "dev": "tsx src/index.ts",
     "build": "tsc -p tsconfig.build.json",
